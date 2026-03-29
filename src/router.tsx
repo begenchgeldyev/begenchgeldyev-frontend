@@ -1,4 +1,5 @@
 import { Blogs } from 'pages/blogs/blogs'
+import { CV } from 'pages/cv/cv'
 import { Home } from 'pages/home/home'
 import { Layout } from 'components/layout/layout'
 import { Projects } from 'pages/projects/projects'
@@ -21,7 +22,10 @@ export const router: RouteObject[] = [
                 path: '/projects',
                 element: <Projects />,
             },
-            
+            {
+                path: '/cv',
+                element: <CV />,
+            },
         ],
     },
 ]

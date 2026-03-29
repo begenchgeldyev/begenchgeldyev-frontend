@@ -14,6 +14,9 @@ export const Header = () => {
         <Link className={styles.menu_item} to="/projects">
           Projects
         </Link>
+        <Link className={styles.menu_item} to="/cv">
+          CV
+        </Link>
       </div>
     </div>
   );

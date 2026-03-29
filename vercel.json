@@ -1,1 +1,7 @@
-{ "rewrites": [{ "source": "/(.*)", "destination": "/" }] }
+{
+  "rewrites": [
+    { "source": "/projects", "destination": "/pages/projects.html" },
+    { "source": "/logs", "destination": "/pages/blogs.html" },
+    { "source": "/fragments/logs", "destination": "/api/fragments/logs" }
+  ]
+}

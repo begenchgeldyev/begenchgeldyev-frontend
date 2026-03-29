@@ -1,6 +1,6 @@
-import { Configuration } from 'webpack';
+import type { Configuration } from 'webpack';
 import { merge } from 'webpack-merge';
-import { webpackCommon } from './webpack.common';
+import { webpackCommon } from './webpack.common.ts';
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
 import ImageMinimizerPlugin from 'image-minimizer-webpack-plugin';
 

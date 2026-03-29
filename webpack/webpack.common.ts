@@ -1,10 +1,14 @@
-import { Configuration } from 'webpack';
+import type { Configuration } from 'webpack';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { fileURLToPath } from 'node:url';
 import path from 'path';
 import TsconfigPathsWebpackPlugin from 'tsconfig-paths-webpack-plugin';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 export const webpackCommon: Configuration = {
   entry: path.resolve(__dirname, '..', 'src', 'main.tsx'),

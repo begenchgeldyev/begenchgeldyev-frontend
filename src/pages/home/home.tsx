@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Github from 'assets/github.svg';
 import LinkedIn from 'assets/linkedin.svg';
@@ -35,9 +34,9 @@ export const Home = () => {
 
         <div className={styles.resume_block}>
           <p>download cv: </p>
-          <Link to="Begench Geldyev(CV).pdf" download rel="noreferrer" target="_target">
+          <a href="/public/Begench%20Geldyev(CV).pdf" download rel="noreferrer" target="_blank">
             <Resume className={styles.resume} fill="#fff" />
-          </Link>
+          </a>
         </div>
       </div>
     </div>

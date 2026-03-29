@@ -1,7 +1,7 @@
-import { Configuration as Config } from 'webpack';
-import { Configuration as DevServerConfig } from 'webpack-dev-server';
+import type { Configuration as Config } from 'webpack';
+import type { Configuration as DevServerConfig } from 'webpack-dev-server';
 import { merge } from 'webpack-merge';
-import { webpackCommon } from './webpack.common';
+import { webpackCommon } from './webpack.common.ts';
 
 const webpackDev: Config | DevServerConfig = merge(webpackCommon, {
   mode: 'development',
