@@ -1,0 +1,12 @@
+{
+    "name": "personal-website-backend",
+    "author": "Begench Geldyev <begenchgeldyev@gmail.com>",
+    "version": "1.0.0",
+    "description": "Personal website BFF server — Bun + HTMX fragments",
+    "license": "MIT",
+    "scripts": {
+        "start": "bun server.ts",
+        "dev": "bun --hot server.ts"
+    },
+    "dependencies": {}
+}
