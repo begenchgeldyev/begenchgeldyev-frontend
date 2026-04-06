@@ -1,0 +1,25 @@
+name: begenchgeldyev
+
+services:
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - "./nginx.conf:/etc/nginx/nginx.conf:ro"
+      - "./pages:/usr/share/nginx/html:ro"
+    depends_on:
+      - backend
+    networks:
+      - begenchgeldyev-network
+
+  backend:
+    build: ./backend
+    env_file:
+      - ./backend/.env
+    networks:
+      - begenchgeldyev-network
+
+networks:
+  begenchgeldyev-network:
+    driver: bridge
