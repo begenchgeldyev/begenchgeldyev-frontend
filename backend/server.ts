@@ -76,7 +76,7 @@ Bun.serve({
     if (pathname === "/logs")           return serveFile("pages/blogs.html");
     if (pathname === "/projects")       return serveFile("pages/projects.html");
     if (pathname === "/cv")             return serveFile("pages/cv.html");
-    if (pathname === "/fragments/logs") return fragmentLogs();
+    if (pathname === "/api/logs") return fragmentLogs();
 
     // Static assets under /public/
     if (pathname.startsWith("/public/")) {

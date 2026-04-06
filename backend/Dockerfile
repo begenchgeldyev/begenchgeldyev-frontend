@@ -1,16 +1,11 @@
 # syntax=docker/dockerfile:1
 
-FROM oven/bun:1 as base
+FROM oven/bun:1
 WORKDIR /usr/src/app
 
-COPY index.html .
 COPY server.ts .
-COPY pages ./pages
-COPY public ./public
+COPY api ./api
 
-ENV NODE_ENV=production
-ENV PORT=8080
-
-EXPOSE 8080
+EXPOSE ${PORT}
 
 CMD ["bun", "server.ts"]
