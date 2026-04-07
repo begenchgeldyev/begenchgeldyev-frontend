@@ -3,9 +3,11 @@
 FROM oven/bun:1
 WORKDIR /usr/src/app
 
-COPY server.ts .
-COPY api ./api
+COPY backend ./backend
+COPY pages ./pages
 
-EXPOSE ${PORT}
+WORKDIR /usr/src/app/backend
+
+EXPOSE 8613
 
 CMD ["bun", "server.ts"]

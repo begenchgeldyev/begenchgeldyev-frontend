@@ -5,8 +5,8 @@
     "description": "Personal portfolio & blog — HTMX + Tailwind + Express",
     "license": "MIT",
     "scripts": {
-        "start": "bun server.ts",
-        "dev": "bun --hot server.ts"
+        "start": "bun backend/server.ts",
+        "dev": "bun --hot backend/server.ts"
     },
     "dependencies": {}
 }
