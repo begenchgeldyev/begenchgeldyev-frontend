@@ -4,10 +4,10 @@ FROM oven/bun:1
 WORKDIR /usr/src/app
 
 COPY backend ./backend
-COPY pages ./pages
+COPY src ./src
 
 WORKDIR /usr/src/app/backend
 
 EXPOSE 8613
 
-CMD ["bun", "server.ts"]
+CMD ["bun", "--hot", "server.ts"]

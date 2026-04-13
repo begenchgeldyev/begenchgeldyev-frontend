@@ -16,6 +16,8 @@ services:
     build:
       context: .
       dockerfile: backend/Dockerfile
+    ports:
+      - "8613:8613"
     env_file:
       - ./backend/.env
     networks:

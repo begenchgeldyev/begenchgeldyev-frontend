@@ -209,7 +209,7 @@ function renderNavLink(activeNav: NavKey | undefined, href: string, label: strin
 function renderHeader(config: PageConfig) {
   const brand = config.brandIsLink
     ? `<a href="/" class="text-[#00FF41] font-mono font-bold tracking-widest text-sm hover:opacity-80 transition-opacity">
-      begench@127.0.0.1 <span class="hidden sm:inline opacity-60">WHOAMI</span>
+      begench@127.0.0.1
     </a>`
     : `<div class="text-[#00FF41] font-mono font-bold tracking-widest text-sm">
       begench@127.0.0.1 <span class="hidden sm:inline opacity-60">WHOAMI</span>

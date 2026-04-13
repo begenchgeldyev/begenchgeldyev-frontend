@@ -18,7 +18,6 @@
 			</div>
 			<h1 class="text-6xl md:text-8xl font-headline font-bold tracking-tighter text-white leading-tight">
 				Software <span class="text-primary-container" id="hero-word">Engineer</span>
-				<span class="blinking-cursor" id="hero-cursor"></span>
 			</h1>
 			<div id="vim-mode" class="font-mono text-[11px] text-primary-container/50 tracking-widest mt-2 h-4 text-center">&nbsp;</div>
 			<p class="text-xl md:text-2xl font-body text-on-surface-variant max-w-2xl mx-auto leading-relaxed mt-6">
@@ -76,8 +75,7 @@
 							autocorrect="off"
 							autocapitalize="off"
 							spellcheck="false"
-							style="position:absolute;opacity:0;pointer-events:none;width:1px;height:1px;"
-							autofocus>
+							style="position:absolute;opacity:0;pointer-events:none;width:1px;height:1px;">
 					</div>
 				</div>
 			</div>
@@ -423,64 +421,3 @@
 		</a>
 	</div>
 </section>
-
-<script>
-(() => {
-	const words = ["Engineer", "Developer", "Architect", "Builder", "Vim Enjoyer"];
-	const wordEl = document.getElementById("hero-word");
-	const modeEl = document.getElementById("vim-mode");
-	const cursor = document.getElementById("hero-cursor");
-	let idx = 0;
-
-	const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-
-	function setMode(mode) {
-		if (mode === "normal") {
-			modeEl.textContent = "-- NORMAL --";
-			cursor.style.opacity = "1";
-		}
-		if (mode === "insert") {
-			modeEl.textContent = "-- INSERT --";
-		}
-		if (mode === "hidden") {
-			modeEl.textContent = "\u00a0";
-		}
-	}
-
-	async function vimCycle() {
-		while (true) {
-			await sleep(2800);
-
-			// Enter NORMAL mode — block cursor, about to issue D
-			setMode("normal");
-			await sleep(400);
-
-			// D: delete word from right to left, fast
-			const cur = wordEl.textContent;
-			for (let i = cur.length - 1; i >= 0; i--) {
-				wordEl.textContent = cur.slice(0, i);
-				await sleep(38);
-			}
-
-			await sleep(100);
-
-			// Enter INSERT mode — start typing next word
-			setMode("insert");
-			await sleep(120);
-
-			idx = (idx + 1) % words.length;
-			const next = words[idx];
-			for (let i = 1; i <= next.length; i++) {
-				wordEl.textContent = next.slice(0, i);
-				await sleep(82);
-			}
-
-			// Back to normal, clear mode indicator
-			await sleep(300);
-			setMode("hidden");
-		}
-	}
-
-	vimCycle();
-})();
-</script>
