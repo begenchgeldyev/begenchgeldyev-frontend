@@ -15,8 +15,10 @@ type PageConfig = {
 };
 
 const ROOT_DIR = join(import.meta.dir, "..");
-const PAGES_DIR = join(ROOT_DIR, "pages");
-const PUBLIC_DIR = join(PAGES_DIR, "public");
+const SRC_DIR = join(ROOT_DIR, "src");
+const PAGES_DIR = join(SRC_DIR, "pages");
+const COMPONENTS_DIR = join(SRC_DIR, "components");
+const PUBLIC_DIR = join(SRC_DIR, "public");
 
 const MIME: Record<string, string> = {
   ".css": "text/css; charset=utf-8",
@@ -290,6 +292,18 @@ ${renderFooter(config)}
 </html>`;
 }
 
+async function resolveIncludes(html: string): Promise<string> {
+  const includeRe = /<!--#include\s+([^-]+?)-->/g;
+  const matches = [...html.matchAll(includeRe)];
+  for (const match of matches) {
+    const componentPath = join(COMPONENTS_DIR, match[1].trim());
+    const file = Bun.file(componentPath);
+    const content = (await file.exists()) ? await file.text() : `<!-- missing: ${match[1].trim()} -->`;
+    html = html.replace(match[0], content);
+  }
+  return html;
+}
+
 export async function renderPage(pathname: string): Promise<Response | null> {
   const config = PAGE_CONFIGS[pathname];
   if (!config) {
@@ -302,7 +316,8 @@ export async function renderPage(pathname: string): Promise<Response | null> {
     return new Response("Not Found", { status: 404 });
   }
 
-  return new Response(renderLayout(config, await fragment.text()), {
+  const content = await resolveIncludes(await fragment.text());
+  return new Response(renderLayout(config, content), {
     headers: { "Content-Type": "text/html; charset=utf-8" },
   });
 }

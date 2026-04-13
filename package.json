@@ -8,5 +8,7 @@
         "start": "bun backend/server.ts",
         "dev": "bun --hot backend/server.ts"
     },
-    "dependencies": {}
+    "devDependencies": {
+        "@biomejs/biome": "2.4.11"
+    }
 }
