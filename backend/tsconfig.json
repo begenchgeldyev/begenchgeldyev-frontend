@@ -5,6 +5,11 @@
 		"lib": ["ESNext"],
 		"module": "preserve",
 		"moduleResolution": "bundler",
-		"strict": true
+		"strict": true,
+		"baseUrl": ".",
+		"paths": {
+			"@/*": ["./*"]
+		},
+		"experimentalDecorators": true
 	}
 }
