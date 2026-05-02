@@ -1,14 +1,19 @@
 {
-    "name": "personal-website",
-    "author": "Begench Geldyev <begenchgeldyev@gmail.com>",
-    "version": "1.0.0",
-    "description": "Personal portfolio & blog — HTMX + Tailwind + Express",
-    "license": "MIT",
-    "scripts": {
-        "start": "bun backend/server.ts",
-        "dev": "bun --hot backend/server.ts"
-    },
-    "devDependencies": {
-        "@biomejs/biome": "2.4.11"
-    }
+  "name": "personal-website",
+  "author": "Begench Geldyev <begenchgeldyev@gmail.com>",
+  "version": "1.0.0",
+  "description": "Personal portfolio & blog — HTMX + Tailwind + Express",
+  "license": "MIT",
+  "scripts": {
+    "start": "bun backend/server.ts",
+    "dev": "bun --hot backend/server.ts"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.4.11",
+    "@types/bun": "latest"
+  },
+  "private": true,
+  "peerDependencies": {
+    "typescript": "^5"
+  }
 }
