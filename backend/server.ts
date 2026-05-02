@@ -1,6 +1,6 @@
 import { renderPage, servePublicAsset } from "./site";
 
-const PORT = Number(process.env.PORT) || 8888;
+const PORT = Number(process.env.PORT) || 8613;
 
 Bun.serve({
 	port: PORT,
