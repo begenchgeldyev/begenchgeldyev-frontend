@@ -12,6 +12,19 @@ services:
     networks:
       - begenchgeldyev-network
 
+  postgres:
+    image: postgres:17-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: begench
+      POSTGRES_PASSWORD: begench
+      POSTGRES_DB: begenchgeldyev
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - begenchgeldyev-network
+
   backend:
     build:
       context: .
@@ -20,8 +33,13 @@ services:
       - "8613:8613"
     env_file:
       - ./backend/.env
+    depends_on:
+      - postgres
     networks:
       - begenchgeldyev-network
+
+volumes:
+  pgdata:
 
 networks:
   begenchgeldyev-network:
