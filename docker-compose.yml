@@ -3,6 +3,7 @@ name: begenchgeldyev
 services:
   nginx:
     image: nginx:alpine
+    restart: unless-stopped
     ports:
       - "80:80"
     volumes:
@@ -14,6 +15,7 @@ services:
 
   postgres:
     image: postgres:17-alpine
+    restart: unless-stopped
     ports:
       - "5432:5432"
     environment:
@@ -29,10 +31,13 @@ services:
     build:
       context: .
       dockerfile: backend/Dockerfile
+    restart: unless-stopped
     ports:
       - "8613:8613"
     env_file:
       - ./backend/.env
+    environment:
+      DATABASE_URL: postgres://begench:begench@postgres:5432/begenchgeldyev
     depends_on:
       - postgres
     networks:

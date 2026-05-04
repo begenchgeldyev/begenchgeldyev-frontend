@@ -10,4 +10,4 @@ WORKDIR /usr/src/app/backend
 
 EXPOSE 8613
 
-CMD ["bun", "--hot", "server.ts"]
+CMD ["bun", "server.ts"]
